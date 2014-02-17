@@ -1,0 +1,6 @@
+Django
+South
+Unidecode
+django-tastypie
+django-tastypie-swagger
+requests

@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+	<head>
+	</head>
+	<body>
+		<h1>Insert your URL here</h1>
+		<input type="text" id="url_to_shorten" class="url_input_box" style="min-width: 30em;" />
+		<br/>
+		<div id="new_url_area"></div>
+		<br/>
+		<br/>
+		<a id="shorten_url_link" href="#" class="submit_url_link">Submit</a>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/shortening_script.js' %}"></script>
+	</body>
+</html>
