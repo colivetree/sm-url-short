@@ -1,6 +1,5 @@
 from django.db import models
 from datetime import datetime    
-import helpers
 from smart_url_api import settings
 
 class ShortenedURLManager(models.Manager):

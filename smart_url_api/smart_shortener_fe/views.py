@@ -13,7 +13,7 @@ def redirect_user_to_page(request,short_hash):
     short_url_accessed = request.get_full_path()
     shortened_url = get_full_url(short_hash)
     if (shortened_url):
-        return HttpResponseRedirect("http://"+shortened_url)
+        return HttpResponseRedirect(shortened_url)
     else:
         return HttpResponse("{error:URL does not exist")
     
