@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime    
+from datetime import datetime
 from smart_url_api import settings
 
 class ShortenedURLManager(models.Manager):
@@ -12,20 +12,21 @@ class ShortenedURLManager(models.Manager):
         curr_hash = ""
         #generate hash from id
         while id > 0:
-            curr_letter_index = id % dict_length 
+            curr_letter_index = id % dict_length
             curr_hash += dict[curr_letter_index-1]
             id /= dict_length
         
-        return base_URL+curr_hash
-            
-            
-    
-        
-        
+        return (base_URL+curr_hash,curr_hash)
+
+
+
+
+
 class ShortenedURL(models.Model):
     id = models.AutoField(primary_key=True)
     full_URL = models.TextField(unique=True)
     short_URL = models.TextField(unique=True)
+    hash = models.TextField(unique=True)
     objects = ShortenedURLManager()
 
 class URLAccess(models.Model):
@@ -33,5 +34,4 @@ class URLAccess(models.Model):
     timestamp = models.DateTimeField(default=datetime.now, blank=True)
     client_IP = models.TextField()
     user_agent = models.TextField()
-    
-    
+
